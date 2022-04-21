@@ -7,9 +7,9 @@ datah = ""
 postHistoricalURL = "https://api.tomorrow.io/v4/timelines"
 
 # get your key from app.tomorrow.io/development/keys
-apikey = "OcZAVVfHBDZL40M2k64SLa0KsSRDVGym"
+apikey = "Insert api key"
 
-location = [57.685736, 11.978515]
+location = ["Location (cordinates)"]
 
 fields = ["temperature",
 "precipitationType",
