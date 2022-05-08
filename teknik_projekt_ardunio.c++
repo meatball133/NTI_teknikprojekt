@@ -6,20 +6,17 @@ int blue_light_pin = 9;
 int red = 255;
 int blue = 255;
 int green = 255;
-int arrayy[3];
+int arrayy[1];
 int x = 0;
 int go = false;
 void setup() {
   Wire.begin(0x8);
-
   Wire.onReceive(receiveEvent);
   Serial.begin(9600);
   pinMode(red_light_pin, OUTPUT);
   pinMode(green_light_pin, OUTPUT);
   pinMode(blue_light_pin, OUTPUT);
-  arrayy[0] = 255;
-  arrayy[1] = 255;
-  arrayy[2] = 255;
+  arrayy[0] = 0;
 }
  
 // Function that executes whenever data is received from master
