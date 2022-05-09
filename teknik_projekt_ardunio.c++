@@ -36,6 +36,12 @@ void loop() {
     blue = 0;
     green = 255;
   }
+  if(arrayy[0] == 6 && go true){
+    red = 0;
+    blue = 0;
+    green = 0;
+  }
+
   RGB_color(red, blue, green);
 
 }
