@@ -7,8 +7,9 @@ int red = 255;
 int blue = 255;
 int green = 255;
 int arrayy[1];
-int x = 0;
-int go = false;
+int go = false; 
+int old_value  = 0;
+int old_color[3];
 void setup() {
   Wire.begin(0x8);
   Wire.onReceive(receiveEvent);
@@ -22,7 +23,6 @@ void setup() {
 // Function that executes whenever data is received from master
 void receiveEvent(int howMany) {
   while (Wire.available()) { // loop through all but the last
-    x= 0;
     go = true;
     arrayy[0] = Wire.read();}}
 
@@ -31,12 +31,19 @@ void receiveEvent(int howMany) {
 
 
 void loop() {
+  if  (old_value != arrayy[0] || old_value == 0){
+    old_value = arrayy[0];
+    
+  }
+
   if (arrayy[0] == 12 && go == true){
     red = 0;
     blue = 0;
     green = 255;
   }
   RGB_color(red, blue, green);
+
+
 
 }
 
