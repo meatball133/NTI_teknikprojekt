@@ -3,6 +3,9 @@ import pytz
 import requests
 import matplotlib.pyplot as plt
 import pandas as pd
+
+#class weather_led_strip(self):
+#def CheckToApi(self):
 datah = ""
 postHistoricalURL = "https://api.tomorrow.io/v4/timelines"
 
@@ -13,7 +16,8 @@ location = ["Location (cordinates)"]
 
 fields = ["temperature",
 "precipitationType",
-"cloudCover"
+"cloudCover",
+"precipitationIntensity"
 ]
 
 units = "metric"
@@ -38,9 +42,11 @@ datah = datah.replace(":","")
 datah = datah.replace("'","")
 datah = datah.replace(",","")
 datah = list(datah.split(" "))
-cloud = float(datah[-5])
+cloud = float(datah[-7])
+AmountOfRain = float(datah[-5])
 weather = int(datah[-3])
 temprature = float(datah[-1])
+print(datah)
 
 if temprature >= 10:
     print("warm")
