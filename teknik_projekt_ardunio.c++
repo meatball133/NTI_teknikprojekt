@@ -10,6 +10,7 @@ int arrayy[1];
 int go = false; 
 int old_value  = 0;
 int old_color[3];
+int new_color[3];
 void setup() {
   Wire.begin(0x8);
   Wire.onReceive(receiveEvent);
@@ -30,26 +31,63 @@ void receiveEvent(int howMany) {
  
 
 
-void loop() {
-  if  (old_value != arrayy[0] || old_value == 0){
+void loop(){
+  if (old_value == 0){
+      old_color[0] = red;
+      old_color[1] = blue;
+      old_color[2] = green;}
+  if  (old_value != arrayy[0]){
     old_value = arrayy[0];
-    
-  }
-
-  if (arrayy[0] == 12 && go == true){
+    int old_color[3] = { red,blue,green };
+    if (old_color[0]  + old_color [1] +  old_color [2] !=765){
+        if (arrayy[0] == 12 && go == true){
     red = 0;
     blue = 0;
     green = 255;
+    }
+      new_color[0] = red;
+      new_color[1] = blue;
+      new_color[2] = green;
+    }
+    else{
+      if (arrayy[0] == 12 && go == true){
+      red = 0;
+      blue = 0;
+      green = 255;
   }
-  RGB_color(red, blue, green);
+     old_color[0] = red;
+     old_color[1] = blue;
+     old_color[2] = green;
+    }
+  }
 
+  if (old_color != new_color && new_color != 0){
+    if (old_color[0] > new_color[0]){
+      old_color[0] = old_color[0]  -1;
+    }
+    if (old_color[0] < new_color[0]){
+      old_color[0] = old_color[0]  +1;
+    }
+    if (old_color[1] > new_color[1]){
+      old_color[1] = old_color[1]  -1;
+    }
+    if (old_color[1] < new_color[1]){
+      old_color[1] = old_color[1]  +1;
+    if (old_color[2] > new_color[2]){
+      old_color[2] = old_color[2]  -1;
+    }
+    if (old_color[2] < new_color[2]){
+      old_color[2] = old_color[2]  +1;
+    }
+  }
 
-
+  RGB_color(old_color[0],old_color[1],old_color[2]);
+  delay(100);
+}
 }
 
 
-void RGB_color(int red_light_value, int green_light_value, int blue_light_value)
- {
+void RGB_color(int red_light_value, int green_light_value, int blue_light_value){
   if (go == true){
     Serial.print(green_light_value);
   analogWrite(red_light_pin, red_light_value);
