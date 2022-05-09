@@ -1,5 +1,6 @@
 # NTI_teknikprojekt
 
+## setup
 To start have python 3 installed on your system. You download it through microsoft store.
 
 You need to install datetime, -pip install datetime
