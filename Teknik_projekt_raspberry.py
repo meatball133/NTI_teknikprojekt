@@ -70,11 +70,11 @@ class weather_led_strip:
         print(datah)
 
         if temprature >= 10:
-            value = 5
+            value = 10
         return value
     def send_data():
         return bus.write_byte(addr, arduino)
-While True:
+while True:
     arduino = weather_led_strip.checkToApi()
     weather_led_strip.send_data()
     time.sleep(500)
