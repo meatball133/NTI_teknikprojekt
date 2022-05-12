@@ -69,8 +69,93 @@ class weather_led_strip:
         temprature = float(datah[-1])#Gives a value in celsius ít can look like -5 and 12,5
         print(datah)
 
-        if temprature >= 10:
+        if temprature < 0 and cloud < 10 and weather == 0:
+            value = 1
+        elif temprature < 0 and cloud < 50 and weather == 0:
+            value = 2
+        elif temprature < 0 and cloud < 100 and weather == 0:
+            value = 3
+
+        elif temprature < 10 and cloud < 10 and weather == 0:
+            value = 4
+        elif temprature < 10 and cloud < 50 and weather == 0:
+            value = 5
+        elif temprature < 10 and cloud < 100 and weather == 0:
+            value = 6
+
+        elif temprature < 15 and cloud < 10 and weather == 0:
+            value = 7
+        elif temprature < 15 and cloud < 50 and weather == 0:
+            value = 8
+        elif temprature < 15 and cloud < 100 and weather == 0:
+            value = 9
+
+        elif temprature < 20 and cloud < 10 and weather == 0:
             value = 10
+        elif temprature < 20 and cloud < 50 and weather == 0:
+            value = 11
+        elif temprature < 20 and cloud < 100 and weather == 0:
+            value = 12
+
+        elif temprature < 60 and cloud < 10 and weather == 0:
+            value = 13
+        elif temprature < 60 and cloud < 50 and weather == 0:
+            value = 14
+        elif temprature < 60 and cloud < 100 and weather == 0:
+            value = 15
+
+        # regn
+        if temprature < 0 and cloud < 0 and weather == 1:
+            value = 16
+        elif temprature < 0 and cloud < 0 and weather == 1:
+            value = 17
+        elif temprature < 0 and cloud < 0 and weather == 1:
+            value = 18
+
+        elif temprature < 10 and cloud < 10 and weather == 1:
+            value = 19
+        elif temprature < 10 and cloud < 50 and weather == 1:
+            value = 20
+        elif temprature < 10 and cloud < 100 and weather == 1:
+            value = 21
+
+        elif temprature < 15 and cloud < 10 and weather == 1:
+            value = 22
+        elif temprature < 15 and cloud < 50 and weather == 1:
+            value = 23
+        elif temprature < 15 and cloud < 100 and weather == 1:
+            value = 24
+
+        elif temprature < 20 and cloud < 10 and weather == 1:
+            value = 25
+        elif temprature < 20 and cloud < 50 and weather == 1:
+            value = 26
+        elif temprature < 20 and cloud < 100 and weather == 1:
+            value = 27
+
+        elif temprature < 60 and cloud < 10 and weather == 1:
+            value = 28
+        elif temprature < 60 and cloud < 50 and weather == 1:
+            value = 29
+        elif temprature < 60 and cloud < 100 and weather == 1:
+            value = 30
+
+        # snö
+        if temprature < 0 and cloud < 0 and weather == 2:
+            value = 31
+        elif temprature < 0 and cloud < 0 and weather == 2:
+            value = 32
+        elif temprature < 0 and cloud < 0 and weather == 2:
+            value = 33
+
+        elif temprature < 10 and cloud < 10 and weather == 2:
+            value = 34
+        elif temprature < 10 and cloud < 50 and weather == 2:
+            value = 35
+        elif temprature < 10 and cloud < 100 and weather == 2:
+            value = 36
+
+
         return value
     def send_data():
         return bus.write_byte(addr, arduino)
