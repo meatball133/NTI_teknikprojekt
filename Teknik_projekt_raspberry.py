@@ -105,11 +105,11 @@ class weather_led_strip:
             value = 15
 
         # regn
-        if temprature < 0 and cloud < 0 and weather == 1:
+        if temprature < 0 and cloud < 10 and weather == 1:
             value = 16
-        elif temprature < 0 and cloud < 0 and weather == 1:
+        elif temprature < 0 and cloud < 50 and weather == 1:
             value = 17
-        elif temprature < 0 and cloud < 0 and weather == 1:
+        elif temprature < 0 and cloud < 100 and weather == 1:
             value = 18
 
         elif temprature < 10 and cloud < 10 and weather == 1:
