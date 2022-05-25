@@ -1,3 +1,4 @@
+#required libaries:
 from ast import While
 import datetime as dt
 import pytz 
@@ -6,12 +7,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from smbus import SMBus
 import time
-addr = 0x8
-bus = SMBus(1)
+addr = 0x8 #Say which port the smbus is going to use
+bus = SMBus(1)# Deffine that SMBus(1) has the same name as bus
 arduino = 0
 value = 0 
-class weather_led_strip:
-    def checkToApi():
+class weather_led_strip: # This is a group of functions
+    def checkToApi(): # This is a function
         datah = ""
         """
         Settings:
@@ -38,14 +39,14 @@ class weather_led_strip:
 
         timezone = "Europe/Oslo"
         """
-        Gathering the data from the api.
+        Gathering the data from the api:
         """
         body = {"location": location, "fields": fields, "units": units, "timesteps": timesteps, "timezone":timezone}
         response = requests.post(f'{postHistoricalURL}?apikey={apikey}', json=body)
         data = response.json()
         data = data["data"]["timelines"]
         """
-        Converting the list that is recived to useable data
+        Converting the list that is recived to useable data:
         """
         datah = str(data)
         datah = datah.replace("]","")
@@ -66,9 +67,12 @@ class weather_led_strip:
             3 = freezing rain
             4 = ice pellet
         """
-        temprature = float(datah[-1])#Gives a value in celsius ít can look like -5 and 12,5
+        temprature = float(datah[-1])#Gives a value in celsius it can look like -5 and 12,5
         print(datah)
-
+        """
+        Convert the weather to diffrent data points:
+        """
+        #ingen nederbörd
         if temprature < 0 and cloud < 10 and weather == 0:
             value = 1
         elif temprature < 0 and cloud < 50 and weather == 0:
@@ -156,10 +160,10 @@ class weather_led_strip:
             value = 36
 
 
-        return value
-    def send_data():
+        return value # Skickar vidare value värdet
+    def send_data(): # A function that sends the value from the function checkToApi to the Arduino
         return bus.write_byte(addr, arduino)
-while True:
-    arduino = weather_led_strip.checkToApi()
-    weather_led_strip.send_data()
-    time.sleep(500)
+while True: #This loops run forever
+    arduino = weather_led_strip.checkToApi() #Runs the weather data function
+    weather_led_strip.send_data()#Runs the send data function
+    time.sleep(500) #Pause the script for 5 min
