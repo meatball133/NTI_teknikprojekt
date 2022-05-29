@@ -33,14 +33,12 @@ void receiveEvent(int howMany) {
 
 
 void loop(){
-  if (old_value == 0){
+  if (old_value == 0){// set a value on startup for the colors
       old_color[0] = red;
       old_color[1] = blue;
-      old_color[2] = green;
-  Serial.print("1");}
+      old_color[2] = green;}
   if  (old_value != arrayy[0]){
     old_value = arrayy[0];
-    Serial.print("2");
     if (old_color[0]  + old_color [1] +  old_color [2] != 765){
       if (arrayy[0] == 1 && go == true){
       red = 102;
@@ -191,19 +189,150 @@ void loop(){
       new_color[2] = green;
     }
     else{
-      Serial.print("hi");
-      if (arrayy[0] == 12 && go == true){
+            if (arrayy[0] == 1 && go == true){
+      red = 102;
+      blue = 0;
+      green = 0;}
+    if(arrayy[0] == 2 && go == true){
+      red = 103;
+      blue = 0;
+      green = 0;}
+    if(arrayy[0] == 3 && go == true){
+      red = 51;
+      blue = 0;
+      green = 0;}
+    if (arrayy[0] == 4 && go == true){
+      red = 51;
+      blue = 51;
+      green = 0;} 
+    if (arrayy[0] == 5 && go == true){
+      red = 51;
+      blue = 51;
+      green = 0;}  
+      if (arrayy[0] == 6 && go == true){
+      red = 51;
+      blue = 26;
+      green = 0;}  
+    if (arrayy[0] == 7 && go == true){
+      red = 51;
+      blue = 102;
+      green = 0;}  
+    if (arrayy[0] == 8 && go == true){
+      red = 51;
+      blue = 102;
+      green = 0;}  
+    if (arrayy[0] == 9 && go == true){
+      red = 26;
+      blue = 51;
+      green = 0;}  
+    if (arrayy[0] == 10 && go == true){
+      red = 0;
+      blue = 153;
+      green = 77;}  
+    if (arrayy[0] == 11 && go == true){
+      red = 0;
+      blue = 153;
+      green = 77;}  
+    if (arrayy[0] == 12 && go == true){
+      red = 0;
+      blue = 153;
+      green = 77;}  
+    if (arrayy[0] == 13 && go == true){
+      red = 0;
+      blue = 204;
+      green = 102;}  
+    if (arrayy[0] == 14 && go == true){
+      red = 0;
+      blue = 204;
+      green = 102;}
+    if (arrayy[0] == 15 && go == true){
+      red = 0;
+      blue = 204;
+      green = 102;}  
+    if (arrayy[0] == 16 && go == true){
+      red = 153;
+      blue = 0;
+      green = 77;}  
+    if (arrayy[0] == 17 && go == true){
+      red = 153;
+      blue = 0;
+      green = 77;}  
+    if (arrayy[0] == 18 && go == true){
+      red = 255;
+      blue = 102;
+      green = 255;}  
+    if (arrayy[0] == 19 && go == true){
+      red = 153;
+      blue = 0;
+      green = 77;}  
+    if (arrayy[0] == 20 && go == true){
+      red = 153;
+      blue = 0;
+      green = 77;}  
+    if (arrayy[0] == 21 && go == true){
+      red = 255;
+      blue = 102;
+      green = 255;}  
+    if (arrayy[0] == 22 && go == true){
+      red = 153;
+      blue = 0;
+      green = 76;}  
+    if (arrayy[0] == 23 && go == true){
+      red = 204;
+      blue = 0;
+      green = 102;}  
+    if (arrayy[0] == 24 && go == true){
+      red = 255;
+      blue = 0;
+      green = 127;}  
+    if (arrayy[0] == 25 && go == true){
+      red = 255;
+      blue = 51;
+      green = 51;}  
+    if (arrayy[0] == 26 && go == true){
+      red = 255;
+      blue = 51;
+      green = 51;}  
+    if (arrayy[0] == 27 && go == true){
+      red = 255;
+      blue = 102;
+      green = 102;}  
+    if (arrayy[0] == 28 && go == true){
+      red = 235;
+      blue = 166;
+      green = 27;}  
+    if (arrayy[0] == 29 && go == true){
+      red = 235;
+      blue = 166;
+      green = 27;}  
+    if (arrayy[0] == 30 && go == true){
+      red = 216;
+      blue = 165;
+      green = 62;}  
+    if (arrayy[0] == 31 && go == true){
+      red = 73;
+      blue = 11;
+      green = 0;}  
+    if (arrayy[0] == 32 && go == true){
+      red = 73;
+      blue = 11;
+      green = 0;}  
+    if (arrayy[0] == 33 && go == true){
+      red = 35;
+      blue = 16;
+      green = 12;}  
+    if (arrayy[0] == 34 && go == true){
+      red = 41;
+      blue = 0;
+      green = 17;}  
+    if (arrayy[0] == 35 && go == true){
+      red = 41;
+      blue = 0;
+      green = 17;}  
+    if (arrayy[0] == 36 && go == true){
       red = 0;
       blue = 0;
-      green = 255;
-      Serial.print("4");
-      
-  }
-      if (arrayy[0] == 10 && go == true){
-      red = 255;
-      blue = 255;
-      green = 0;
-      Serial.print("4");}
+      green = 0;}
         
         
      old_color[0] = red;
