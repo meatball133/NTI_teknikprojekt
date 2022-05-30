@@ -1,5 +1,4 @@
 #required libaries:
-from ast import While
 import datetime as dt
 import pytz 
 import requests
@@ -19,18 +18,15 @@ class weather_led_strip: # This is a group of functions
         """
         postHistoricalURL = "https://api.tomorrow.io/v4/timelines"
 
-        # get your key from app.tomorrow.io/development/keys
+        apikey = "Insert api key"# get your key from app.tomorrow.io/development/keys
 
-        apikey = "Insert api key"
-
-        location = [""]
+        location = [""]# Input cordinates
 
         fields = ["temperature",
         "precipitationType",
         "cloudCover",
         "precipitationIntensity"
         ]
-
         units = "metric"
 
         timesteps = ["current"]
