@@ -32,15 +32,15 @@ void receiveEvent(int howMany) {
  
 
 
-void loop(){
+void loop(){// This is the part that loops. The begning of the codes include a part of code which makes a slow transition of colors.
   if (old_value == 0){// set a value on startup for the colors
       old_color[0] = red;
       old_color[1] = blue;
       old_color[2] = green;}
-  if  (old_value != arrayy[0]){
-    old_value = arrayy[0];
-    if (old_color[0]  + old_color [1] +  old_color [2] != 765){
-      if (arrayy[0] == 1 && go == true){
+  if  (old_value != arrayy[0]){//This checks if the values aren't the same and if not its puts array[0]  
+    old_value = arrayy[0];                      
+    if (old_color[0]  + old_color [1] +  old_color [2] != 765){ // This checks so that the values here is not the starting values. This code is only runned after the first time after setup.
+      if (arrayy[0] == 1 && go == true){//This checks part checks the code what the input from raspberry pi is.
       red = 102;
       blue = 0;
       green = 0;}
@@ -184,12 +184,12 @@ void loop(){
       red = 0;
       blue = 0;
       green = 0;}
-      new_color[0] = red;
+      new_color[0] = red;//This part transfer the information to an array
       new_color[1] = blue;
       new_color[2] = green;
     }
-    else{
-            if (arrayy[0] == 1 && go == true){
+    else{//This is the starting up the proccesses. This part is only runned one time after reciving signal from the raspberry pi.
+    if (arrayy[0] == 1 && go == true){
       red = 102;
       blue = 0;
       green = 0;}
@@ -335,13 +335,13 @@ void loop(){
       green = 0;}
         
         
-     old_color[0] = red;
+     old_color[0] = red;//This part transfer the information to an array
      old_color[1] = blue;
      old_color[2] = green;
     }
   }
 
-  if (old_color != new_color && new_color != 0){
+  if (old_color != new_color && new_color != 0){ //This part makes the slow transition and compares the colors
     if (old_color[0] > new_color[0]){
       old_color[0] = old_color[0]  -1;
     }
@@ -361,13 +361,13 @@ void loop(){
     }
   }
 
-  	RGB_color(old_color[0],old_color[1],old_color[2]);
+  	RGB_color(old_color[0],old_color[1],old_color[2]); // This print the code to the an array
 	delay(100);
     arrayy[0] = 10;
 }
 }
 
-void RGB_color(int red_light_value, int green_light_value, int blue_light_value){
+void RGB_color(int red_light_value, int green_light_value, int blue_light_value){// This part prints to the outputs from the ardiuno.
   if (go == true){
   Serial.print(red_light_value);
   analogWrite(red_light_pin, red_light_value);
