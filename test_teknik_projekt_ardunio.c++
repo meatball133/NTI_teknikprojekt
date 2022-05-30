@@ -363,7 +363,6 @@ void loop(){// This is the part that loops. The begning of the codes include a p
 
   	RGB_color(old_color[0],old_color[1],old_color[2]); // This print the code to the an array
 	delay(100);
-    arrayy[0] = 10;
 }
 }
 
