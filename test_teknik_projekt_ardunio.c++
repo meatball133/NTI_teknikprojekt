@@ -8,7 +8,7 @@ int red = 255; // Turns the led strips off, 0 is on and 255 is off for each colo
 int blue = 255;
 int green = 255;
 int arrayy[1]; 
-int go = false; 
+boolean go = false; 
 int old_value  = 0;
 int old_color[3];
 int new_color[3];
@@ -39,8 +39,8 @@ void loop(){// This is the part that loops. The begning of the codes include a p
       old_color[2] = green;}
   if  (old_value != arrayy[0]){//This checks if the values aren't the same and if not its puts array[0]  
     old_value = arrayy[0];                      
-    if (old_color[0]  + old_color [1] +  old_color [2] != 765){ // This checks so that the values here is not the starting values. This code is only runned after the first time after setup.
-      if (arrayy[0] == 1 && go == true){//This checks part checks the code what the input from raspberry pi is.
+    if (old_color[0]  + old_color[1] +  old_color[2] != 765){ // This checks so that the values here is not the starting values. This code is only runned after the first time after setup.
+    if (arrayy[0] == 1 && go == true){//This checks part checks the code what the input from raspberry pi is.
       red = 102;
       blue = 0;
       green = 0;}
