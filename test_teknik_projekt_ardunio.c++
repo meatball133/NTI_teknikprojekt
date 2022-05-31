@@ -33,13 +33,6 @@ void receiveEvent(int howMany) {
 
 
 void loop(){// This is the part that loops. The begning of the codes include a part of code which makes a slow transition of colors.
-  if (old_value == 0){// set a value on startup for the colors
-      old_color[0] = red;
-      old_color[1] = blue;
-      old_color[2] = green;}
-  if  (old_value != arrayy[0]){//This checks if the values aren't the same and if not its puts array[0]  
-    old_value = arrayy[0];                      
-    if (old_color[0]  + old_color[1] +  old_color[2] != 765){ // This checks so that the values here is not the starting values. This code is only runned after the first time after setup.
     if (arrayy[0] == 1 && go == true){//This checks part checks the code what the input from raspberry pi is.
       red = 102;
       blue = 0;
@@ -184,187 +177,17 @@ void loop(){// This is the part that loops. The begning of the codes include a p
       red = 0;
       blue = 0;
       green = 0;}
-      new_color[0] = red;//This part transfer the information to an array
-      new_color[1] = blue;
-      new_color[2] = green;
-    }
-    else{//This is the starting up the proccesses. This part is only runned one time after reciving signal from the raspberry pi.
-    if (arrayy[0] == 1 && go == true){
-      red = 102;
-      blue = 0;
-      green = 0;}
-    if(arrayy[0] == 2 && go == true){
-      red = 103;
-      blue = 0;
-      green = 0;}
-    if(arrayy[0] == 3 && go == true){
-      red = 51;
-      blue = 0;
-      green = 0;}
-    if (arrayy[0] == 4 && go == true){
-      red = 51;
-      blue = 51;
-      green = 0;} 
-    if (arrayy[0] == 5 && go == true){
-      red = 51;
-      blue = 51;
-      green = 0;}  
-      if (arrayy[0] == 6 && go == true){
-      red = 51;
-      blue = 26;
-      green = 0;}  
-    if (arrayy[0] == 7 && go == true){
-      red = 51;
-      blue = 102;
-      green = 0;}  
-    if (arrayy[0] == 8 && go == true){
-      red = 51;
-      blue = 102;
-      green = 0;}  
-    if (arrayy[0] == 9 && go == true){
-      red = 26;
-      blue = 51;
-      green = 0;}  
-    if (arrayy[0] == 10 && go == true){
-      red = 0;
-      blue = 153;
-      green = 77;}  
-    if (arrayy[0] == 11 && go == true){
-      red = 0;
-      blue = 153;
-      green = 77;}  
-    if (arrayy[0] == 12 && go == true){
-      red = 0;
-      blue = 153;
-      green = 77;}  
-    if (arrayy[0] == 13 && go == true){
-      red = 0;
-      blue = 204;
-      green = 102;}  
-    if (arrayy[0] == 14 && go == true){
-      red = 0;
-      blue = 204;
-      green = 102;}
-    if (arrayy[0] == 15 && go == true){
-      red = 0;
-      blue = 204;
-      green = 102;}  
-    if (arrayy[0] == 16 && go == true){
-      red = 153;
-      blue = 0;
-      green = 77;}  
-    if (arrayy[0] == 17 && go == true){
-      red = 153;
-      blue = 0;
-      green = 77;}  
-    if (arrayy[0] == 18 && go == true){
-      red = 255;
-      blue = 102;
-      green = 255;}  
-    if (arrayy[0] == 19 && go == true){
-      red = 153;
-      blue = 0;
-      green = 77;}  
-    if (arrayy[0] == 20 && go == true){
-      red = 153;
-      blue = 0;
-      green = 77;}  
-    if (arrayy[0] == 21 && go == true){
-      red = 255;
-      blue = 102;
-      green = 255;}  
-    if (arrayy[0] == 22 && go == true){
-      red = 153;
-      blue = 0;
-      green = 76;}  
-    if (arrayy[0] == 23 && go == true){
-      red = 204;
-      blue = 0;
-      green = 102;}  
-    if (arrayy[0] == 24 && go == true){
-      red = 255;
-      blue = 0;
-      green = 127;}  
-    if (arrayy[0] == 25 && go == true){
-      red = 255;
-      blue = 51;
-      green = 51;}  
-    if (arrayy[0] == 26 && go == true){
-      red = 255;
-      blue = 51;
-      green = 51;}  
-    if (arrayy[0] == 27 && go == true){
-      red = 255;
-      blue = 102;
-      green = 102;}  
-    if (arrayy[0] == 28 && go == true){
-      red = 235;
-      blue = 166;
-      green = 27;}  
-    if (arrayy[0] == 29 && go == true){
-      red = 235;
-      blue = 166;
-      green = 27;}  
-    if (arrayy[0] == 30 && go == true){
-      red = 216;
-      blue = 165;
-      green = 62;}  
-    if (arrayy[0] == 31 && go == true){
-      red = 73;
-      blue = 11;
-      green = 0;}  
-    if (arrayy[0] == 32 && go == true){
-      red = 73;
-      blue = 11;
-      green = 0;}  
-    if (arrayy[0] == 33 && go == true){
-      red = 35;
-      blue = 16;
-      green = 12;}  
-    if (arrayy[0] == 34 && go == true){
-      red = 41;
-      blue = 0;
-      green = 17;}  
-    if (arrayy[0] == 35 && go == true){
-      red = 41;
-      blue = 0;
-      green = 17;}  
-    if (arrayy[0] == 36 && go == true){
-      red = 0;
-      blue = 0;
-      green = 0;}
-        
-        
-     old_color[0] = red;//This part transfer the information to an array
-     old_color[1] = blue;
-     old_color[2] = green;
-    }
-  }
+      old_color[0] = red;//This part transfer the information to an array
+      old_color[1] = blue;
+      old_color[2] = green;
+    
+    
+  
 
-  if (old_color != new_color && new_color != 0){ //This part makes the slow transition and compares the colors
-    if (old_color[0] > new_color[0]){
-      old_color[0] = old_color[0]  -1;
-    }
-    if (old_color[0] < new_color[0]){
-      old_color[0] = old_color[0]  +1;
-    }
-    if (old_color[1] > new_color[1]){
-      old_color[1] = old_color[1]  -1;
-    }
-    if (old_color[1] < new_color[1]){
-      old_color[1] = old_color[1]  +1;
-    if (old_color[2] > new_color[2]){
-      old_color[2] = old_color[2]  -1;
-    }
-    if (old_color[2] < new_color[2]){
-      old_color[2] = old_color[2]  +1;
-    }
-  }
+    RGB_color(old_color[0],old_color[1],old_color[2]); // This print the code to the an array
+  delay(100);
+}
 
-  	RGB_color(old_color[0],old_color[1],old_color[2]); // This print the code to the an array
-	delay(100);
-}
-}
 
 void RGB_color(int red_light_value, int green_light_value, int blue_light_value){// This part prints to the outputs from the ardiuno.
   if (go == true){
