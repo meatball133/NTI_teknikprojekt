@@ -8,7 +8,7 @@ int red = 255; // Turns the led strips off, 0 is on and 255 is off for each colo
 int blue = 255;
 int green = 255;
 int arrayy[1]; 
-int go = false; 
+boolean go = false; 
 int old_value  = 0;
 int old_color[3];
 int new_color[3];
@@ -32,17 +32,8 @@ void receiveEvent(int howMany) {
  
 
 
-void loop(){
-  if (old_value == 0){
-      old_color[0] = red;
-      old_color[1] = blue;
-      old_color[2] = green;
-  Serial.print("1");}
-  if  (old_value != arrayy[0]){
-    old_value = arrayy[0];
-    Serial.print("2");
-    if (old_color[0]  + old_color [1] +  old_color [2] != 765){
-      if (arrayy[0] == 1 && go == true){
+void loop(){// This is the part that loops. The begning of the codes include a part of code which makes a slow transition of colors.
+    if (arrayy[0] == 1 && go == true){//This checks part checks the code what the input from raspberry pi is.
       red = 102;
       blue = 0;
       green = 0;}
@@ -186,59 +177,19 @@ void loop(){
       red = 0;
       blue = 0;
       green = 0;}
-      new_color[0] = red;
-      new_color[1] = blue;
-      new_color[2] = green;
-    }
-    else{
-      Serial.print("hi");
-      if (arrayy[0] == 12 && go == true){
-      red = 0;
-      blue = 0;
-      green = 255;
-      Serial.print("4");
-      
-  }
-      if (arrayy[0] == 10 && go == true){
-      red = 255;
-      blue = 255;
-      green = 0;
-      Serial.print("4");}
-        
-        
-     old_color[0] = red;
-     old_color[1] = blue;
-     old_color[2] = green;
-    }
-  }
+      old_color[0] = red;//This part transfer the information to an array
+      old_color[1] = blue;
+      old_color[2] = green;
+    
+    
+  
 
-  if (old_color != new_color && new_color != 0){
-    if (old_color[0] > new_color[0]){
-      old_color[0] = old_color[0]  -1;
-    }
-    if (old_color[0] < new_color[0]){
-      old_color[0] = old_color[0]  +1;
-    }
-    if (old_color[1] > new_color[1]){
-      old_color[1] = old_color[1]  -1;
-    }
-    if (old_color[1] < new_color[1]){
-      old_color[1] = old_color[1]  +1;
-    if (old_color[2] > new_color[2]){
-      old_color[2] = old_color[2]  -1;
-    }
-    if (old_color[2] < new_color[2]){
-      old_color[2] = old_color[2]  +1;
-    }
-  }
-
-  	RGB_color(old_color[0],old_color[1],old_color[2]);
-	delay(100);
-    arrayy[0] = 10;
-}
+    RGB_color(old_color[0],old_color[1],old_color[2]); // This print the code to the an array
+  delay(100);
 }
 
-void RGB_color(int red_light_value, int green_light_value, int blue_light_value){
+
+void RGB_color(int red_light_value, int green_light_value, int blue_light_value){// This part prints to the outputs from the ardiuno.
   if (go == true){
   Serial.print(red_light_value);
   analogWrite(red_light_pin, red_light_value);
