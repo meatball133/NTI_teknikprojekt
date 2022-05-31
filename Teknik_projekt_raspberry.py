@@ -2,8 +2,6 @@
 import datetime as dt
 import pytz 
 import requests
-import matplotlib.pyplot as plt
-import pandas as pd
 from smbus import SMBus
 import time
 addr = 0x8 #Say which port the smbus is going to use
